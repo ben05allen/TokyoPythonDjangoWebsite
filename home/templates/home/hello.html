@@ -47,7 +47,7 @@
 
         def handle_keypress(event):
             move = event.key.lower()
-            
+
             # Find current 'p' position
             r, c = -1, -1
             for row_idx, row_list in enumerate(grid):
@@ -73,7 +73,7 @@
                     display("Hit a wall!", target="status-message")
             else:
                 display("Border reached!", target="status-message")
-            
+
             # Redraw the map after moving
             draw_grid()
 
