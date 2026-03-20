@@ -1,0 +1,89 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}Events Calendar{% endblock %}
+
+{% block content %}
+    <section class="py-16 px-6 md:px-16">
+        <div class="mb-12">
+            <h2 class="font-title text-3xl md:text-4xl font-light">Upcoming Events</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body">
+                    <div class="badge badge-outline badge-sm text-accent">APR 2026</div>
+                    <h3 class="card-title">Python &amp; Web Scraping</h3>
+                    <p class="text-sm text-base-content/60 leading-relaxed">
+                        Learn how to extract data from websites using Beautiful Soup and Scrapy.
+                        We'll build a real scraper together and discuss best practices and ethics.
+                    </p>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="https://www.meetup.com/tokyopython/" class="btn btn-primary btn-sm">RSVP on Meetup</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body">
+                    <div class="badge badge-outline badge-sm text-accent">MAY 2026</div>
+                    <h3 class="card-title">Django Deployments</h3>
+                    <p class="text-sm text-base-content/60 leading-relaxed">
+                        From local development to production — we'll walk through deploying Django apps
+                        with Docker, gunicorn, and cloud hosting platforms.
+                    </p>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="https://www.meetup.com/tokyopython/" class="btn btn-primary btn-sm">RSVP on Meetup</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body">
+                    <div class="badge badge-outline badge-sm text-accent">JUN 2026</div>
+                    <h3 class="card-title">Lightning Talks Night</h3>
+                    <p class="text-sm text-base-content/60 leading-relaxed">
+                        Five-minute talks on any Python topic. Sign up to share something you've learned,
+                        built, or discovered. All levels welcome!
+                    </p>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="https://www.meetup.com/tokyopython/" class="btn btn-primary btn-sm">RSVP on Meetup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-16 px-6 md:px-16">
+        <div class="mb-12">
+            <h2 class="font-title text-3xl md:text-4xl font-light">Past Events</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body">
+                    <div class="badge badge-outline badge-sm text-accent">DEC 2025</div>
+                    <h3 class="card-title">Christmas Bowling Challenge</h3>
+                    <p class="text-sm text-base-content/60 leading-relaxed">
+                        A coding challenge to build a bowling scoring program. Fun, festive,
+                        and full of edge cases!
+                    </p>
+                    <div class="card-actions justify-end">
+                        <a href="https://github.com/ben05allen/TokyoPythonBowlingChallenge" class="link link-hover text-sm">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body">
+                    <div class="badge badge-outline badge-sm text-accent">NOV 2025</div>
+                    <h3 class="card-title">Python x Rust</h3>
+                    <p class="text-sm text-base-content/60 leading-relaxed">
+                        Exploring the intersection of Python and Rust — Polars, UV, Ruff,
+                        and why Rust is becoming Python's best friend.
+                    </p>
+                    <div class="card-actions justify-end">
+                        <a href="https://github.com/ben05allen/TokyoPython-Rust-In-Python" class="link link-hover text-sm">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

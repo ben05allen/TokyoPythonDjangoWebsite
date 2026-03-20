@@ -1,41 +1,25 @@
 from django.shortcuts import render
-# Create your views here.
+from .models import Event, BlogPost
 
 
 def home(request):
-    return render(request, "home/index.html")
+    upcoming_events = Event.objects.filter(is_upcoming=True)[:2]
+    return render(request, "home/index.html", {"upcoming_events": upcoming_events})
 
 
-# def new_game(request):
-#     grid = generate_map()
-#     session = GameSession.objects.create(
-#         player_x = 0,
-#         player_y = 0,
-#         map_data = {'grid': grid},
-#     )
+def about(request):
+    return render(request, "home/about.html")
 
-#     request.session['game_id'] = session.id
-#     return redirect("map")
 
-# def map_view(request):
-#     session = GameSession.objects.get(id= request.session['game_id'])
-#     grid = session.map_data['grid']
-#     return render(request,
-#                    "home/map.html", {'session': session, 'grid': grid,})
+def calendar(request):
+    upcoming_events = Event.objects.filter(is_upcoming=True)
+    past_events = Event.objects.filter(is_upcoming=False).order_by("-date")
+    return render(request, "home/calendar.html", {
+        "upcoming_events": upcoming_events,
+        "past_events": past_events,
+    })
 
-# def move(request, direction):
-#     session = GameSession.objects.get(id = request.session['game_id'])
-#     if direction == 'north': session.player_y -= 1
-#     if direction == 'south': session.player_y += 1
-#     if direction == 'west': session.player_x -= 1
-#     if direction == 'east': session.player_x += 1
 
-#     session.save()
-#     return redirect("map")
-
-# def combat(request):
-#     session = GameSession.objects.get(id = request.session['game_id'])
-#     return render(request, "home/combat.html", {'session': session})
-
-# def attack(request):
-#     return render("combat")
+def blog(request):
+    posts = BlogPost.objects.all()
+    return render(request, "home/blog.html", {"posts": posts})

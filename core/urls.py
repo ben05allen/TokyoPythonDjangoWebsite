@@ -22,4 +22,7 @@ from home import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="home"),
+    path("about", views.about, name="about_us"),
+    path("calendar", views.calendar, name="events_calendar"),
+    path("blog", views.blog, name="blog"),
 ]

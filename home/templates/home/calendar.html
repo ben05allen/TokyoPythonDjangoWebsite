@@ -1,0 +1,184 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}Events Calendar — Tokyo Python{% endblock %}
+
+{% block content %}
+    <!-- Calendar Header -->
+    <section class="bg-surface px-6 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Event Calendar</span>
+                    <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background">October.</h1>
+                </div>
+                <div class="flex items-center bg-surface-container-low p-1 rounded-xl">
+                    <button class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
+                        <span class="material-symbols-outlined text-secondary">chevron_left</span>
+                    </button>
+                    <span class="px-4 font-headline font-bold text-on-surface">Today</span>
+                    <button class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
+                        <span class="material-symbols-outlined text-secondary">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Grid + Side Panel -->
+    <section class="bg-surface px-6 pb-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Calendar Grid -->
+            <div class="lg:col-span-8">
+                <div class="grid grid-cols-7 gap-px bg-surface-container-highest rounded-xl overflow-hidden">
+                    <!-- Day Headers -->
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Mon</span></div>
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Tue</span></div>
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Wed</span></div>
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Thu</span></div>
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Fri</span></div>
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Sat</span></div>
+                    <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Sun</span></div>
+
+                    <!-- Row 1 -->
+                    <div class="bg-surface-container-low min-h-[120px] p-2 opacity-40"><span class="text-xs font-headline font-bold">29</span></div>
+                    <div class="bg-surface-container-low min-h-[120px] p-2 opacity-40"><span class="text-xs font-headline font-bold">30</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">1</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">2</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">3</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">4</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">5</span></div>
+
+                    <!-- Row 2 -->
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">6</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
+                        <span class="text-xs font-headline font-bold">7</span>
+                        <div class="mt-2 bg-secondary-container/30 border-l-4 border-secondary p-2 rounded-r-lg">
+                            <p class="text-[10px] font-bold text-secondary uppercase leading-tight">Data Science Lab</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">8</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">9</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
+                        <span class="text-xs font-headline font-bold">10</span>
+                        <div class="mt-2 bg-primary-container/10 border-l-4 border-primary p-2 rounded-r-lg">
+                            <p class="text-[10px] font-bold text-primary uppercase leading-tight">PyNight Mix</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">11</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">12</span></div>
+
+                    <!-- Row 3 (Active Selection) -->
+                    <div class="bg-surface-container-lowest min-h-[120px] p-2 ring-2 ring-primary ring-inset z-10">
+                        <span class="text-xs font-headline font-bold text-primary">13</span>
+                        <div class="mt-2 bg-primary-container text-on-primary p-2 rounded">
+                            <p class="text-[10px] font-bold uppercase leading-tight">Django Workshop</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">14</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">15</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
+                        <span class="text-xs font-headline font-bold">16</span>
+                        <div class="mt-2 bg-secondary-container/30 border-l-4 border-secondary p-2 rounded-r-lg">
+                            <p class="text-[10px] font-bold text-secondary uppercase leading-tight">FastAPI Talk</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">17</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">18</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">19</span></div>
+
+                    <!-- Row 4 -->
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">20</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">21</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
+                        <span class="text-xs font-headline font-bold">22</span>
+                        <div class="mt-2 bg-primary-container/10 border-l-4 border-primary p-2 rounded-r-lg">
+                            <p class="text-[10px] font-bold text-primary uppercase leading-tight">Career Panel</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">23</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">24</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">25</span></div>
+                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">26</span></div>
+                </div>
+            </div>
+
+            <!-- Detail Side Panel -->
+            <div class="lg:col-span-4 space-y-8">
+                <div class="bg-surface-container-low rounded-2xl p-8 sticky top-28">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="font-headline font-extrabold text-2xl tracking-tight">Today's Focus</h2>
+                        <span class="bg-primary px-3 py-1 rounded-full text-[10px] text-white font-bold uppercase tracking-wider">Oct 13</span>
+                    </div>
+
+                    <div class="space-y-10">
+                        <div class="relative pl-8 border-l border-outline-variant/30">
+                            <div class="absolute -left-1 top-0 w-2 h-2 rounded-full bg-primary ring-4 ring-surface-container-low"></div>
+                            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">18:30 - 20:30 JST</span>
+                            <h3 class="font-headline font-bold text-lg mb-3">Intermediate Django: Beyond the Basics</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed mb-4">A deep dive into custom managers, queryset optimization, and middleware patterns for professional Pythonistas.</p>
+                            <button class="w-full py-3 bg-surface-container-lowest font-headline font-bold text-sm rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                                Reserve My Seat
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+
+                        <div class="bg-surface-container-highest/50 rounded-xl p-6">
+                            <h4 class="font-headline font-bold text-sm mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                                Location
+                            </h4>
+                            <p class="text-xs font-medium text-on-surface-variant">WeWork Iceberg Shibuya, 1F Lounge</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-outline-variant/20">
+                        <h4 class="font-headline font-bold text-xs uppercase tracking-widest text-on-surface-variant/60 mb-6">Coming Up Next</h4>
+                        <div class="space-y-6">
+                            {% for event in upcoming_events %}
+                            <div class="flex gap-4 group cursor-pointer">
+                                <div class="flex-shrink-0 w-12 h-12 bg-surface-container-lowest rounded-lg flex flex-col items-center justify-center ring-1 ring-outline-variant/10 group-hover:ring-primary/30 transition-colors">
+                                    <span class="text-[10px] font-bold text-on-surface-variant">{{ event.short_month }}</span>
+                                    <span class="text-lg font-headline font-bold text-primary">{{ event.day }}</span>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm font-bold leading-tight group-hover:text-primary transition-colors">{{ event.title }}</h5>
+                                    {% if event.location %}
+                                    <span class="text-[10px] text-on-surface-variant uppercase font-bold mt-1 block">{{ event.location }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-sm text-on-surface-variant">No upcoming events.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events -->
+    {% if past_events %}
+    <section class="bg-surface-container-low px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Archive</span>
+                <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Past Events</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {% for event in past_events %}
+                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors group">
+                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-3">{{ event.month_label }}</span>
+                    <h3 class="font-headline font-bold text-lg mb-3 group-hover:text-primary transition-colors">{{ event.title }}</h3>
+                    <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">{{ event.description }}</p>
+                    {% if event.link %}
+                    <a href="{{ event.link }}" class="text-primary font-headline font-bold text-sm">{{ event.link_label }} →</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+{% endblock %}
