@@ -21,10 +21,5 @@ from home import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("landing/", views.home, name = "home"),
-    path("new/", views.new_game, name = "new_game"),
-    path("map/", views.map_view, name = "map"),
-    path("move/<str:direction>/", views.move, name = "move"),
-    path("combat", views.combat, name = "combat"),
-    path("attack", views.attack, name = "attack"),
+    path("", views.home, name="home"),
 ]

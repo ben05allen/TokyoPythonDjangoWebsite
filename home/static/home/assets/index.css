@@ -170,7 +170,7 @@
     @media (min-width: 1024px) {
       .hero {flex: row;}
       .map-preview { width: 50%; }
-      
+
     }
     .mp-cell {
       border-radius: 4px;

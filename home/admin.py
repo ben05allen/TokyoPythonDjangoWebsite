@@ -1,5 +1,3 @@
-from django.contrib import admin
-
 # Register your models here.
 
 # import os
@@ -10,7 +8,7 @@ from django.contrib import admin
 #         ['x','w','x','x','x','x','x','x','x',],
 #         ['x','w','w','x','x','x','x','x','x',]]
 
-# print("🐍") #protagonist 
+# print("🐍") #protagonist
 
 # def draw_grid():
 #     os.system("cls" if os.name == "nt" else "clear")
