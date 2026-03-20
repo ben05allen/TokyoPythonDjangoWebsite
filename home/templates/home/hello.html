@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PyScript Grid Game</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        /* This makes the text look like a terminal grid */
+        #game-board {
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1.2;
+            background-color: #222;
+            color: #0f0;
+            padding: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>WASD to Move the 'p'</h2>
+    <div id="game-board"></div>
+    <div id="status-message"></div>
+
+    <script type="py">
+        from pyscript import document, display
+        from pyodide.ffi import create_proxy
+
+        # 1. Setup the Grid
+        grid = [
+            ['p','x','x','x','x','x','x','x','x'],
+            ['x','w','x','x','x','x','x','x','x'],
+            ['x','w','x','x','x','x','x','x','x'],
+            ['x','w','x','x','x','x','x','x','x'],
+            ['x','w','x','x','x','x','x','x','x'],
+            ['x','w','w','x','x','x','x','x','x']
+        ]
+
+        def draw_grid():
+            # Turn the list of lists into one big string for the browser
+            map_string = ""
+            for row in grid:
+                map_string += " ".join(row) + "\n"
+            display(map_string, target="game-board", append=False)
+
+        def handle_keypress(event):
+            move = event.key.lower()
+            
+            # Find current 'p' position
+            r, c = -1, -1
+            for row_idx, row_list in enumerate(grid):
+                if "p" in row_list:
+                    r, c = row_idx, row_list.index("p")
+                    break
+
+            # Calculate new position
+            new_r, new_c = r, c
+            if move == "w": new_r -= 1
+            elif move == "s": new_r += 1
+            elif move == "a": new_c -= 1
+            elif move == "d": new_c += 1
+            else: return # Ignore other keys
+
+            # Boundary and Wall check
+            if 0 <= new_r < len(grid) and 0 <= new_c < len(grid[0]):
+                if grid[new_r][new_c] != "w":
+                    grid[r][c] = "x"
+                    grid[new_r][new_c] = "p"
+                    display("", target="status-message") # Clear messages
+                else:
+                    display("Hit a wall!", target="status-message")
+            else:
+                display("Border reached!", target="status-message")
+            
+            # Redraw the map after moving
+            draw_grid()
+
+        # Initialize the game
+        draw_grid()
+
+        # Connect the keyboard to the function
+        keypress_proxy = create_proxy(handle_keypress)
+        document.addEventListener("keydown", keypress_proxy)
+    </script>
+</body>
+</html>
