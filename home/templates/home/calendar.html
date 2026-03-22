@@ -10,16 +10,16 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
                     <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Event Calendar</span>
-                    <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background">October.</h1>
+                    <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background">{{ month_label }}.</h1>
                 </div>
                 <div class="flex items-center bg-surface-container-low p-1 rounded-xl">
-                    <button class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
+                    <a href="?year={{ prev_month.year }}&month={{ prev_month.month }}" class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
                         <span class="material-symbols-outlined text-secondary">chevron_left</span>
-                    </button>
-                    <span class="px-4 font-headline font-bold text-on-surface">Today</span>
-                    <button class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
+                    </a>
+                    <a href="?" class="px-4 font-headline font-bold text-on-surface hover:text-primary transition-colors">Today</a>
+                    <a href="?year={{ next_month.year }}&month={{ next_month.month }}" class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
                         <span class="material-symbols-outlined text-secondary">chevron_right</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -40,66 +40,51 @@
                     <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Sat</span></div>
                     <div class="bg-surface py-4 text-center"><span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/60">Sun</span></div>
 
-                    <!-- Row 1 -->
-                    <div class="bg-surface-container-low min-h-[120px] p-2 opacity-40"><span class="text-xs font-headline font-bold">29</span></div>
-                    <div class="bg-surface-container-low min-h-[120px] p-2 opacity-40"><span class="text-xs font-headline font-bold">30</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">1</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">2</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">3</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">4</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">5</span></div>
-
-                    <!-- Row 2 -->
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">6</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
-                        <span class="text-xs font-headline font-bold">7</span>
-                        <div class="mt-2 bg-secondary-container/30 border-l-4 border-secondary p-2 rounded-r-lg">
-                            <p class="text-[10px] font-bold text-secondary uppercase leading-tight">Data Science Lab</p>
-                        </div>
-                    </div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">8</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">9</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
-                        <span class="text-xs font-headline font-bold">10</span>
-                        <div class="mt-2 bg-primary-container/10 border-l-4 border-primary p-2 rounded-r-lg">
-                            <p class="text-[10px] font-bold text-primary uppercase leading-tight">PyNight Mix</p>
-                        </div>
-                    </div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">11</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">12</span></div>
-
-                    <!-- Row 3 (Active Selection) -->
-                    <div class="bg-surface-container-lowest min-h-[120px] p-2 ring-2 ring-primary ring-inset z-10">
-                        <span class="text-xs font-headline font-bold text-primary">13</span>
-                        <div class="mt-2 bg-primary-container text-on-primary p-2 rounded">
-                            <p class="text-[10px] font-bold uppercase leading-tight">Django Workshop</p>
-                        </div>
-                    </div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">14</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">15</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
-                        <span class="text-xs font-headline font-bold">16</span>
-                        <div class="mt-2 bg-secondary-container/30 border-l-4 border-secondary p-2 rounded-r-lg">
-                            <p class="text-[10px] font-bold text-secondary uppercase leading-tight">FastAPI Talk</p>
-                        </div>
-                    </div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">17</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">18</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">19</span></div>
-
-                    <!-- Row 4 -->
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">20</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">21</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
-                        <span class="text-xs font-headline font-bold">22</span>
-                        <div class="mt-2 bg-primary-container/10 border-l-4 border-primary p-2 rounded-r-lg">
-                            <p class="text-[10px] font-bold text-primary uppercase leading-tight">Career Panel</p>
-                        </div>
-                    </div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">23</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">24</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">25</span></div>
-                    <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors"><span class="text-xs font-headline font-bold">26</span></div>
+                    <!-- Calendar Days -->
+                    {% for week in calendar_weeks %}
+                        {% for day in week %}
+                            {% if day.is_today %}
+                            <div class="bg-surface-container-lowest min-h-[120px] p-2 ring-2 ring-primary ring-inset z-10">
+                                <span class="text-xs font-headline font-bold text-primary">{{ day.day }}</span>
+                                {% for event in day.events %}
+                                    {% if event.color == "primary" %}
+                                    <div class="mt-1 bg-primary-container text-on-primary p-2 rounded">
+                                        <p class="text-[10px] font-bold uppercase leading-tight">{{ event.title }}</p>
+                                    </div>
+                                    {% else %}
+                                    <div class="mt-1 bg-secondary-container/30 border-l-4 border-secondary p-2 rounded-r-lg">
+                                        <p class="text-[10px] font-bold text-secondary uppercase leading-tight">{{ event.title }}</p>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% elif day.in_month %}
+                            <div class="bg-surface min-h-[120px] p-2 hover:bg-surface-container-lowest transition-colors">
+                                <span class="text-xs font-headline font-bold">{{ day.day }}</span>
+                                {% for event in day.events %}
+                                    {% if event.color == "primary" %}
+                                    <div class="mt-1 bg-primary-container/10 border-l-4 border-primary p-2 rounded-r-lg">
+                                        <p class="text-[10px] font-bold text-primary uppercase leading-tight">{{ event.title }}</p>
+                                    </div>
+                                    {% else %}
+                                    <div class="mt-1 bg-secondary-container/30 border-l-4 border-secondary p-2 rounded-r-lg">
+                                        <p class="text-[10px] font-bold text-secondary uppercase leading-tight">{{ event.title }}</p>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <div class="bg-surface-container-low min-h-[120px] p-2 opacity-40">
+                                <span class="text-xs font-headline font-bold">{{ day.day }}</span>
+                                {% for event in day.events %}
+                                    <div class="mt-1 bg-surface-container-highest/50 p-2 rounded">
+                                        <p class="text-[10px] font-bold uppercase leading-tight">{{ event.title }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -108,28 +93,38 @@
                 <div class="bg-surface-container-low rounded-2xl p-8 sticky top-28">
                     <div class="flex items-center justify-between mb-8">
                         <h2 class="font-headline font-extrabold text-2xl tracking-tight">Today's Focus</h2>
-                        <span class="bg-primary px-3 py-1 rounded-full text-[10px] text-white font-bold uppercase tracking-wider">Oct 13</span>
+                        <span class="bg-primary px-3 py-1 rounded-full text-[10px] text-white font-bold uppercase tracking-wider">{{ today|date:"M d" }}</span>
                     </div>
 
                     <div class="space-y-10">
+                        {% for event in today_events %}
                         <div class="relative pl-8 border-l border-outline-variant/30">
                             <div class="absolute -left-1 top-0 w-2 h-2 rounded-full bg-primary ring-4 ring-surface-container-low"></div>
-                            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">18:30 - 20:30 JST</span>
-                            <h3 class="font-headline font-bold text-lg mb-3">Intermediate Django: Beyond the Basics</h3>
-                            <p class="text-sm text-on-surface-variant leading-relaxed mb-4">A deep dive into custom managers, queryset optimization, and middleware patterns for professional Pythonistas.</p>
-                            <button class="w-full py-3 bg-surface-container-lowest font-headline font-bold text-sm rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
-                                Reserve My Seat
+                            {% if event.time_start and event.time_end %}
+                            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">{{ event.time_start|time:"H:i" }} - {{ event.time_end|time:"H:i" }} JST</span>
+                            {% elif event.time_start %}
+                            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">{{ event.time_start|time:"H:i" }} JST</span>
+                            {% endif %}
+                            <h3 class="font-headline font-bold text-lg mb-3">{{ event.title }}</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed mb-4">{{ event.description }}</p>
+                            {% if event.link %}
+                            <a href="{{ event.link }}" class="w-full py-3 bg-surface-container-lowest font-headline font-bold text-sm rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                                {{ event.link_label }}
                                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                            </button>
+                            </a>
+                            {% endif %}
+                            {% if event.location %}
+                            <div class="bg-surface-container-highest/50 rounded-xl p-4 mt-4">
+                                <p class="text-xs font-medium text-on-surface-variant flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                                    {{ event.location }}
+                                </p>
+                            </div>
+                            {% endif %}
                         </div>
-
-                        <div class="bg-surface-container-highest/50 rounded-xl p-6">
-                            <h4 class="font-headline font-bold text-sm mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-primary text-sm">location_on</span>
-                                Location
-                            </h4>
-                            <p class="text-xs font-medium text-on-surface-variant">WeWork Iceberg Shibuya, 1F Lounge</p>
-                        </div>
+                        {% empty %}
+                        <p class="text-sm text-on-surface-variant">No events today.</p>
+                        {% endfor %}
                     </div>
 
                     <div class="mt-12 pt-8 border-t border-outline-variant/20">

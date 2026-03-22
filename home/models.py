@@ -55,6 +55,15 @@ class BlogPost(models.Model):
         return self.published_date.strftime("%B %Y")
 
 
+class CalendarEvent(Event):
+    """Proxy model for managing events shown on the calendar page."""
+
+    class Meta:
+        proxy = True
+        verbose_name = "Calendar Event"
+        verbose_name_plural = "Calendar Events"
+
+
 class GameSession(models.Model):
     player_hp = models.IntegerField(default=100)
     player_attack = models.IntegerField(default=10)
