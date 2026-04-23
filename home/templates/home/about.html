@@ -1,94 +1,96 @@
 {% extends "home/base.html" %}
 {% load static %}
-
-{% block title %}About Us — Tokyo Python{% endblock %}
-
+{% block title %}
+  About Us — Tokyo Python
+{% endblock title %}
 {% block content %}
-    <!-- About Hero -->
-    <section class="bg-surface px-6 pt-16 pb-24">
-        <div class="max-w-7xl mx-auto">
-            <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-4 block">Who We Are</span>
-            <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background mb-10">About Us.</h1>
-            <div class="max-w-2xl">
-                <p class="font-body text-base text-on-surface-variant leading-relaxed mb-6">
-                    Tokyo Python is a vibrant, English-speaking community for Python enthusiasts based in Tokyo.
-                    Founded in 2017, we bring together developers of all levels — from beginners writing their first
-                    script to seasoned engineers building production systems.
-                </p>
-                <p class="font-body text-base text-on-surface-variant leading-relaxed">
-                    Whether you're looking to learn, share knowledge, or just meet fellow Pythonistas,
-                    you'll find a welcoming home with us.
-                </p>
-            </div>
+  <!-- About Hero -->
+  <section class="bg-surface px-6 pt-16 pb-24">
+    <div class="max-w-7xl mx-auto">
+      <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-4 block">Who We Are</span>
+      <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background mb-10">About Us.</h1>
+      <div class="max-w-2xl">
+        <p class="font-body text-base text-on-surface-variant leading-relaxed mb-6">
+          Tokyo Python is a vibrant, English-speaking community for Python enthusiasts based in Tokyo.
+          Founded in 2017, we bring together developers of all levels — from beginners writing their first
+          script to seasoned engineers building production systems.
+        </p>
+        <p class="font-body text-base text-on-surface-variant leading-relaxed">
+          Whether you're looking to learn, share knowledge, or just meet fellow Pythonistas,
+          you'll find a welcoming home with us.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- What We Do -->
+  <section class="bg-surface-container-low px-6 py-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Activities</span>
+        <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">What We Do</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors">
+          <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary">groups</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg mb-3">Monthly Meetups</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">
+            Regular gatherings where members present talks, demos, and discussions
+            on all things Python. From web development to data science, machine learning
+            to automation — every topic is welcome.
+          </p>
         </div>
-    </section>
-
-    <!-- What We Do -->
-    <section class="bg-surface-container-low px-6 py-24">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16">
-                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Activities</span>
-                <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">What We Do</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors">
-                    <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary">groups</span>
-                    </div>
-                    <h3 class="font-headline font-bold text-lg mb-3">Monthly Meetups</h3>
-                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                        Regular gatherings where members present talks, demos, and discussions
-                        on all things Python. From web development to data science, machine learning
-                        to automation — every topic is welcome.
-                    </p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors">
-                    <div class="w-12 h-12 bg-secondary-container/30 rounded-lg flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-secondary">code</span>
-                    </div>
-                    <h3 class="font-headline font-bold text-lg mb-3">Coding Challenges</h3>
-                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                        Fun, hands-on coding sessions where we tackle problems together.
-                        Past challenges have included bowling scoring programs, advent of code events,
-                        and collaborative projects.
-                    </p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors">
-                    <div class="w-12 h-12 bg-tertiary-fixed/30 rounded-lg flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-tertiary">forum</span>
-                    </div>
-                    <h3 class="font-headline font-bold text-lg mb-3">Community &amp; Networking</h3>
-                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                        A friendly Discord server and Meetup group where members connect,
-                        ask questions, share resources, and help each other grow as developers.
-                    </p>
-                </div>
-            </div>
+        <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors">
+          <div class="w-12 h-12 bg-secondary-container/30 rounded-lg flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-secondary">code</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg mb-3">Coding Challenges</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">
+            Fun, hands-on coding sessions where we tackle problems together.
+            Past challenges have included bowling scoring programs, advent of code events,
+            and collaborative projects.
+          </p>
         </div>
-    </section>
-
-    <!-- Partners -->
-    <section class="bg-surface px-6 py-24">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16">
-                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Network</span>
-                <!-- <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Partners</h2> -->
-            </div>
-            <div class="flex flex-col gap-8 items-center md:flex-row md:justify-around">
-                <a href="https://www.meetup.com/tokyopython/" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/meetup-icon.png' %}" alt="Meetup.com">
-                </a>
-                <a href="https://www.lewagon.com/tokyo" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/lewagon.png' %}" alt="Le Wagon Tokyo">
-                </a>
-                <a href="https://tokyopython.link/discord" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/discord-black-icon.png' %}" alt="Discord">
-                </a>
-                <a href="https://www.python.org/psf/donations/" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/python-logo-only.svg' %}" alt="Python Software Foundation">
-                </a>
-            </div>
+        <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors">
+          <div class="w-12 h-12 bg-tertiary-fixed/30 rounded-lg flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-tertiary">forum</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg mb-3">Community &amp; Networking</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">
+            A friendly Discord server and Meetup group where members connect,
+            ask questions, share resources, and help each other grow as developers.
+          </p>
         </div>
-    </section>
-{% endblock %}
+      </div>
+    </div>
+  </section>
+  <!-- Partners -->
+  <section class="bg-surface px-6 py-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Network</span>
+        <!-- <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Partners</h2> -->
+      </div>
+      <div class="flex flex-col gap-8 items-center md:flex-row md:justify-around">
+        <a href="https://www.meetup.com/tokyopython/"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/meetup-icon.png' %}" alt="Meetup.com">
+        </a>
+        <a href="https://www.lewagon.com/tokyo"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/lewagon.png' %}" alt="Le Wagon Tokyo">
+        </a>
+        <a href="https://tokyopython.link/discord"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/discord-black-icon.png' %}" alt="Discord">
+        </a>
+        <a href="https://www.python.org/psf/donations/"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/python-logo-only.svg' %}"
+               alt="Python Software Foundation">
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

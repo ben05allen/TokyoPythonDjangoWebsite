@@ -1,32 +1,32 @@
 {% extends "home/base.html" %}
 {% load static %}
-
-{% block title %}Blog — Tokyo Python{% endblock %}
-
+{% block title %}
+  Blog — Tokyo Python
+{% endblock title %}
 {% block content %}
-    <section class="bg-surface px-6 pt-16 pb-24">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16">
-                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Community Writing</span>
-                <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background">Blog.</h1>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {% for post in posts %}
-                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors group cursor-pointer">
-                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-3">{{ post.month_label }}</span>
-                    <h3 class="font-headline font-bold text-xl mb-3 group-hover:text-primary transition-colors">{{ post.title }}</h3>
-                    <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">{{ post.excerpt }}</p>
-                    {% if post.link %}
-                    <a href="{{ post.link }}" class="text-primary font-headline font-bold text-sm">Read more →</a>
-                    {% else %}
-                    <span class="text-primary font-headline font-bold text-sm">Read more →</span>
-                    {% endif %}
-                </div>
-                {% empty %}
-                <p class="font-body text-sm text-on-surface-variant col-span-2">No blog posts yet. Stay tuned!</p>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-{% endblock %}
+  <section class="bg-surface px-6 pt-16 pb-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Community Writing</span>
+        <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background">Blog.</h1>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {% for post in posts %}
+          <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors group cursor-pointer">
+            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-3">{{ post.month_label }}</span>
+            <h3 class="font-headline font-bold text-xl mb-3 group-hover:text-primary transition-colors">{{ post.title }}</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">{{ post.excerpt }}</p>
+            {% if post.link %}
+              <a href="{{ post.link }}"
+                 class="text-primary font-headline font-bold text-sm">Read more →</a>
+            {% else %}
+              <span class="text-primary font-headline font-bold text-sm">Read more →</span>
+            {% endif %}
+          </div>
+        {% empty %}
+          <p class="font-body text-sm text-on-surface-variant col-span-2">No blog posts yet. Stay tuned!</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}
