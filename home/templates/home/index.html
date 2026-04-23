@@ -1,88 +1,94 @@
 {% extends "home/base.html" %}
 {% load static %}
-
-{% block title %}Tokyo Python — Home{% endblock %}
-
+{% block title %}
+  Tokyo Python — Home
+{% endblock title %}
 {% block content %}
-    <!-- Hero -->
-    <section class="bg-surface px-6 pt-16 pb-24">
-        <div class="max-w-7xl mx-auto flex flex-col items-center lg:flex-row-reverse lg:justify-between gap-12">
-            <img src="{% static 'home/assets/tokyoskyline.png' %}" alt="Red Python Logo above Tokyo" class="w-full max-w-lg lg:w-1/2">
-            <div class="max-w-xl">
-                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-4 block">Est. 2017 — Tokyo, Japan</span>
-                <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background mb-8">
-                    Tokyo<br>Python.
-                </h1>
-                <p class="font-body text-base text-on-surface-variant leading-relaxed mb-10 max-w-md">
-                    A vibrant, English-speaking community for Pythonistas based in Tokyo.
-                    Monthly meetups, coding challenges, and a welcoming space for developers of all levels.
-                </p>
-                <div class="flex flex-wrap gap-4 items-center">
-                    <a href="https://www.meetup.com/tokyopython/" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-lg font-headline font-bold text-sm active:scale-95 transition-transform no-underline">
-                        Join the Community
-                    </a>
-                    <a href="{% url 'events_calendar' %}" class="text-primary font-headline font-bold text-sm hover:underline">
-                        View Events →
-                    </a>
-                </div>
-            </div>
+  <!-- Hero -->
+  <section class="bg-surface px-6 pt-16 pb-24">
+    <div class="max-w-7xl mx-auto flex flex-col items-center lg:flex-row-reverse lg:justify-between gap-12">
+      <img src="{% static 'home/assets/tokyoskyline.png' %}"
+           alt="Red Python Logo above Tokyo"
+           class="w-full max-w-lg lg:w-1/2">
+      <div class="max-w-xl">
+        <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-4 block">Est. 2017 — Tokyo, Japan</span>
+        <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background mb-8">
+          Tokyo
+          <br>
+          Python.
+        </h1>
+        <p class="font-body text-base text-on-surface-variant leading-relaxed mb-10 max-w-md">
+          A vibrant, English-speaking community for Pythonistas based in Tokyo.
+          Monthly meetups, coding challenges, and a welcoming space for developers of all levels.
+        </p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <a href="https://www.meetup.com/tokyopython/"
+             class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-lg font-headline font-bold text-sm active:scale-95 transition-transform no-underline">
+            Join the Community
+          </a>
+          <a href="{% url 'events_calendar' %}"
+             class="text-primary font-headline font-bold text-sm hover:underline">View Events →</a>
         </div>
-    </section>
-
-    <!-- Upcoming Events -->
-    <section class="bg-surface-container-low px-6 py-24">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                <div>
-                    <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">What's Next</span>
-                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Upcoming Events</h2>
-                </div>
-                <a href="{% url 'events_calendar' %}" class="text-primary font-headline font-bold text-sm hover:underline">
-                    Full Calendar →
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {% for event in upcoming_events %}
-                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors group cursor-pointer">
-                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-3">{{ event.month_label }}</span>
-                    <h3 class="font-headline font-bold text-xl mb-3 group-hover:text-primary transition-colors">{{ event.title }}</h3>
-                    <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">{{ event.description }}</p>
-                    {% if event.link %}
-                    <a href="{{ event.link }}" class="text-primary font-headline font-bold text-sm">{{ event.link_label }} →</a>
-                    {% endif %}
-                </div>
-                {% empty %}
-                <p class="font-body text-sm text-on-surface-variant col-span-2">No upcoming events yet. Check back soon!</p>
-                {% endfor %}
-            </div>
+      </div>
+    </div>
+  </section>
+  <!-- Upcoming Events -->
+  <section class="bg-surface-container-low px-6 py-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">What's Next</span>
+          <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Upcoming Events</h2>
         </div>
-    </section>
-
-    <!-- Partners -->
-    <section class="bg-surface px-6 py-24">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16">
-                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Network</span>
-                <!-- <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Partners &amp; Friends</h2> -->
-            </div>
-            <div class="flex flex-col gap-8 items-center md:flex-row md:justify-around">
-                <a href="https://www.meetup.com/tokyopython/" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/meetup-icon.png' %}" alt="Meetup.com">
-                </a>
-                <a href="https://www.lewagon.com/tokyo" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/lewagon.png' %}" alt="Le Wagon Tokyo">
-                </a>
-                <a href="https://tokyopython.link/discord" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/discord-black-icon.png' %}" alt="Discord">
-                </a>
-                <a href="https://www.python.org/psf/donations/" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="{% static 'home/assets/python-logo-only.svg' %}" alt="Python Software Foundation">
-                </a>
-            </div>
-            <p class="mt-16 text-center font-body text-on-surface-variant text-lg">
-                Thank you to all of our members and supporters.
-            </p>
-        </div>
-    </section>
-{% endblock %}
+        <a href="{% url 'events_calendar' %}"
+           class="text-primary font-headline font-bold text-sm hover:underline">Full Calendar →</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {% for event in upcoming_events %}
+          <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors group cursor-pointer">
+            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-3">{{ event.month_label }}</span>
+            <h3 class="font-headline font-bold text-xl mb-3 group-hover:text-primary transition-colors">{{ event.title }}</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">{{ event.description }}</p>
+            {% if event.link %}
+              <a href="{{ event.link }}"
+                 class="text-primary font-headline font-bold text-sm">{{ event.link_label }} →</a>
+            {% endif %}
+          </div>
+        {% empty %}
+          <p class="font-body text-sm text-on-surface-variant col-span-2">No upcoming events yet. Check back soon!</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- Partners -->
+  <section class="bg-surface px-6 py-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Network</span>
+        <!-- <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Partners &amp; Friends</h2> -->
+      </div>
+      <div class="flex flex-col gap-8 items-center md:flex-row md:justify-around">
+        <a href="https://www.meetup.com/tokyopython/"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/meetup-icon.png' %}" alt="Meetup.com">
+        </a>
+        <a href="https://www.lewagon.com/tokyo"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/lewagon.png' %}" alt="Le Wagon Tokyo">
+        </a>
+        <a href="https://tokyopython.link/discord"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/discord-black-icon.png' %}" alt="Discord">
+        </a>
+        <a href="https://www.python.org/psf/donations/"
+           class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+          <img src="{% static 'home/assets/python-logo-only.svg' %}"
+               alt="Python Software Foundation">
+        </a>
+      </div>
+      <p class="mt-16 text-center font-body text-on-surface-variant text-lg">
+        Thank you to all of our members and supporters.
+      </p>
+    </div>
+  </section>
+{% endblock content %}

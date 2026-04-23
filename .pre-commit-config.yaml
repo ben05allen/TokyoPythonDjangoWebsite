@@ -1,7 +1,7 @@
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.5
+    rev: v0.15.11
     hooks:
       # Run the linter.
       - id: ruff-check
@@ -11,8 +11,15 @@ repos:
       - id: ruff-format
         types_or: [python, pyi]
 
+  - repo: https://github.com/Riverside-Healthcare/djlint
+    rev: v1.36.4
+    hooks:
+      - id: djlint-reformat-django
+        args: ["--indent", "2"]
+      - id: djlint-django
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0 # or latest
+    rev: v6.0.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
