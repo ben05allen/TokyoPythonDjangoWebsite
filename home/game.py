@@ -1,9 +1,10 @@
 import random
 
-#Get into the station in time.
-#Pyscript #Pyodide
+# Get into the station in time.
+# Pyscript #Pyodide
 
-def generate_map(width = 8, height = 8):
+
+def generate_map(width=8, height=8):
     grid = [[0 for _ in range(width)] for _ in range(height)]
     for y in range(height):
         for x in range(width):
@@ -24,11 +25,13 @@ class Player:
         self.x = 0
         self.y = 0
 
+
 class Enemy:
     def __init__(self, name, hp, attack):
         self.name = name
         self.hp = hp
         self.attack = attack
+
 
 class Room:
     def __init__(self, x, y):
@@ -37,4 +40,3 @@ class Room:
         self.visited = False
         self.enemy = None
         self.item = None
-

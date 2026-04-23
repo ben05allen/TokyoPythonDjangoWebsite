@@ -51,13 +51,15 @@ def calendar(request):
     for week in weeks:
         days = []
         for d in week:
-            days.append({
-                "date": d,
-                "day": d.day,
-                "in_month": d.month == month,
-                "is_today": d == today,
-                "events": events_by_date.get(d, []),
-            })
+            days.append(
+                {
+                    "date": d,
+                    "day": d.day,
+                    "in_month": d.month == month,
+                    "is_today": d == today,
+                    "events": events_by_date.get(d, []),
+                }
+            )
         calendar_weeks.append(days)
 
     month_label = date(year, month, 1).strftime("%B")
@@ -70,17 +72,21 @@ def calendar(request):
     # Today's events for the side panel
     today_events = CalendarEvent.objects.filter(date=today)
 
-    return render(request, "home/calendar.html", {
-        "calendar_weeks": calendar_weeks,
-        "month_label": month_label,
-        "year_label": year_label,
-        "today": today,
-        "prev_month": prev_month,
-        "next_month": next_month,
-        "upcoming_events": upcoming_events,
-        "past_events": past_events,
-        "today_events": today_events,
-    })
+    return render(
+        request,
+        "home/calendar.html",
+        {
+            "calendar_weeks": calendar_weeks,
+            "month_label": month_label,
+            "year_label": year_label,
+            "today": today,
+            "prev_month": prev_month,
+            "next_month": next_month,
+            "upcoming_events": upcoming_events,
+            "past_events": past_events,
+            "today_events": today_events,
+        },
+    )
 
 
 def blog(request):

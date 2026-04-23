@@ -5,43 +5,65 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('home', '0001_initial'),
+        ("home", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BlogPost',
+            name="BlogPost",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('excerpt', models.TextField()),
-                ('content', models.TextField(blank=True)),
-                ('published_date', models.DateField(default=django.utils.timezone.now)),
-                ('link', models.URLField(blank=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("excerpt", models.TextField()),
+                ("content", models.TextField(blank=True)),
+                ("published_date", models.DateField(default=django.utils.timezone.now)),
+                ("link", models.URLField(blank=True)),
             ],
             options={
-                'ordering': ['-published_date'],
+                "ordering": ["-published_date"],
             },
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('date', models.DateField()),
-                ('time_start', models.TimeField(blank=True, null=True)),
-                ('time_end', models.TimeField(blank=True, null=True)),
-                ('location', models.CharField(blank=True, max_length=300)),
-                ('link', models.URLField(blank=True)),
-                ('link_label', models.CharField(default='RSVP', max_length=100)),
-                ('is_upcoming', models.BooleanField(default=True)),
-                ('color', models.CharField(choices=[('primary', 'Red'), ('secondary', 'Blue')], default='primary', max_length=20)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("date", models.DateField()),
+                ("time_start", models.TimeField(blank=True, null=True)),
+                ("time_end", models.TimeField(blank=True, null=True)),
+                ("location", models.CharField(blank=True, max_length=300)),
+                ("link", models.URLField(blank=True)),
+                ("link_label", models.CharField(default="RSVP", max_length=100)),
+                ("is_upcoming", models.BooleanField(default=True)),
+                (
+                    "color",
+                    models.CharField(
+                        choices=[("primary", "Red"), ("secondary", "Blue")],
+                        default="primary",
+                        max_length=20,
+                    ),
+                ),
             ],
             options={
-                'ordering': ['date'],
+                "ordering": ["date"],
             },
         ),
     ]
