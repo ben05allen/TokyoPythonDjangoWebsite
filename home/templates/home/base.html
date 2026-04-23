@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Tokyo Python{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f6f3f2",
+              "secondary-container": "#a4d0ff",
+              "tertiary-fixed-dim": "#98cbff",
+              "on-secondary-container": "#295982",
+              "error-container": "#ffdad6",
+              "primary-container": "#e4231e",
+              "surface-tint": "#c0000a",
+              "primary": "#bd000a",
+              "surface-container-highest": "#e5e2e1",
+              "tertiary": "#196094",
+              "outline-variant": "#e7bdb7",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#001d33",
+              "on-tertiary-container": "#fefcff",
+              "background": "#fcf9f8",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "error": "#ba1a1a",
+              "tertiary-container": "#3b79ae",
+              "tertiary-fixed": "#cfe5ff",
+              "inverse-on-surface": "#f3f0ef",
+              "secondary-fixed": "#cfe5ff",
+              "secondary-fixed-dim": "#9ecbfa",
+              "secondary": "#33628b",
+              "inverse-surface": "#313030",
+              "surface-container": "#f0edec",
+              "inverse-primary": "#ffb4aa",
+              "on-primary-fixed": "#410001",
+              "on-surface-variant": "#5d3f3b",
+              "on-primary-fixed-variant": "#930005",
+              "on-error": "#ffffff",
+              "surface": "#fcf9f8",
+              "surface-dim": "#dcd9d9",
+              "primary-fixed-dim": "#ffb4aa",
+              "on-primary-container": "#fffdff",
+              "on-background": "#1c1b1b",
+              "primary-fixed": "#ffdad5",
+              "on-surface": "#1c1b1b",
+              "on-secondary-fixed-variant": "#154a72",
+              "surface-container-high": "#ebe7e7",
+              "surface-bright": "#fcf9f8",
+              "outline": "#926f6a",
+              "on-tertiary-fixed-variant": "#004a77",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e5e2e1",
+              "on-tertiary-fixed": "#001d33"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fcf9f8;
+        color: #1c1b1b;
+      }
+      .headline-font { font-family: 'Manrope', sans-serif; }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+
+    <!-- TopNavBar — Glassmorphism -->
+    <header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/80 backdrop-blur-md">
+        <div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+            <div class="flex items-center gap-8">
+                <a href="{% url 'home' %}" class="flex items-center gap-3 no-underline">
+                    <img src="{% static 'home/assets/python-logo-red.png' %}"
+                        alt="Logo of Tokyo Python Usergroup" class="w-10">
+                    <span class="text-xl font-black tracking-tighter text-on-background headline-font">Tokyo Python</span>
+                </a>
+                <nav class="hidden md:flex gap-6">
+                    <a href="{% url 'home' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">Home</a>
+                    <a href="{% url 'about_us' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">About</a>
+                    <a href="{% url 'events_calendar' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">Events</a>
+                    <a href="{% url 'blog' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">Blog</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://www.meetup.com/tokyopython/" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-headline font-bold text-sm active:scale-95 transition-transform no-underline hidden sm:block">
+                    Join Us
+                </a>
+                <!-- Mobile menu button -->
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 hover:bg-surface-container-high rounded-lg transition-colors">
+                    <span class="material-symbols-outlined text-secondary">menu</span>
+                </button>
+            </div>
+        </div>
+        <div class="bg-surface-container-low h-[1px] w-full"></div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fcf9f8]/95 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
+                <a href="{% url 'home' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="{% url 'about_us' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">About</a>
+                <a href="{% url 'events_calendar' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">Events</a>
+                <a href="{% url 'blog' %}" class="font-headline tracking-tight font-bold text-sm uppercase text-secondary hover:text-primary transition-colors">Blog</a>
+                <a href="https://www.meetup.com/tokyopython/" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-headline font-bold text-sm text-center no-underline">Join Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="mt-20 flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low w-full py-12 px-6 mt-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <span class="font-headline font-extrabold text-primary text-xl">Tokyo Python</span>
+                <p class="font-body text-xs tracking-wide text-on-background/60">&copy; 2026 Tokyo Python. Built for the community.</p>
+            </div>
+            <nav class="flex gap-8">
+                <a href="{% url 'about_us' %}" class="font-body text-xs tracking-wide text-on-background/60 hover:text-primary transition-colors">About</a>
+                <a href="{% url 'events_calendar' %}" class="font-body text-xs tracking-wide text-on-background/60 hover:text-primary transition-colors">Events</a>
+                <a href="{% url 'blog' %}" class="font-body text-xs tracking-wide text-on-background/60 hover:text-primary transition-colors">Blog</a>
+            </nav>
+            <div class="flex gap-4">
+                <a href="https://www.meetup.com/tokyopython/" class="p-2 bg-surface-container-lowest rounded-full hover:scale-110 transition-transform">
+                    <img src="{% static 'home/assets/meetup-icon.svg' %}" alt="Meetup" class="w-5 h-5">
+                </a>
+                <a href="https://discord.gg/ZbF4Rjqf" class="p-2 bg-surface-container-lowest rounded-full hover:scale-110 transition-transform">
+                    <img src="{% static 'home/assets/discord-black-icon.png' %}" alt="Discord" class="w-5 h-5">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

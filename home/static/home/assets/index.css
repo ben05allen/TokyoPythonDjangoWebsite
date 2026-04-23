@@ -21,16 +21,9 @@
     }
 
     /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+    .site-nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 24px 60px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--faint);
     }
 
     .nav-logo {
@@ -170,7 +163,7 @@
     @media (min-width: 1024px) {
       .hero {flex: row;}
       .map-preview { width: 50%; }
-      
+
     }
     .mp-cell {
       border-radius: 4px;
@@ -276,7 +269,7 @@
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2px;
     }
 
@@ -307,6 +300,10 @@
       font-size: 0.7rem;
       line-height: 2;
       color: var(--mid);
+    }
+
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     /* ── CTA ── */
@@ -347,14 +344,6 @@
     .btn-light:hover { background: var(--accent); color: #fff; }
 
     /* ── FOOTER ── */
-    footer {
-      padding: 40px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--faint);
-    }
-
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
@@ -386,15 +375,14 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 20px 24px; }
-      .nav-links { display: none; }
+      .site-nav { display: none; }
       .hero { grid-template-columns: 1fr; }
       .hero-right { min-height: 300px; }
       .hero-left { padding: 60px 24px; }
       .stats-strip { flex-direction: column; }
       .stat { border-right: none; border-bottom: 1px solid var(--faint); padding: 32px 24px; }
       .features { padding: 80px 24px; }
-      .feature-grid { grid-template-columns: 1fr; }
+      .feature-grid, .blog-grid { grid-template-columns: 1fr; }
       .cta { flex-direction: column; padding: 80px 24px; }
       footer { flex-direction: column; gap: 12px; padding: 32px 24px; }
     }

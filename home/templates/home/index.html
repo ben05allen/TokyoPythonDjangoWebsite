@@ -1,122 +1,88 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Homepage{% endblock %}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'home/assets/index.css' %}">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+{% block title %}Tokyo Python — Home{% endblock %}
 
-<body>
-
-    <div class="flex flex-col justify-between min-h-dvh">
-        <header class="bg-white py-5 px-20 border-b-2 border-black shadow-md">
-            <div class="flex flex-col items-center gap-5 md:flex-row"> <img src="{% static 'home/assets/python-logo-red.png' %}"
-                    alt="Logo of Tokyo Python Usergroup" class="w-12">
-                <h2 class="text-lg font-carlito font-bold md:text-2xl">Tokyo Python</h2>
-            </div>
-        </header>
-        <div class="my-2 flex flex-col items-center lg:flex-row-reverse lg:justify-around">
-            <div>
-
-                <h1 class="text-4xl font-hero text-center drop-shadow-md sm:text-5xl xl:text-6xl lg:text-left">
-                    Tokyo Python
-                </h1> 
-                <div class="mx-auto">
-                    <p class="mx-5 pt-10 text-center text-xl max-w-xl md:text-2xl">
-                        Tokyo Python: A vibrant, English-speaking community for Pythonistas,
-                        based in Tokyo since 2017.
-                    </p>
-                </div>
-                </div>
-
-            <img src="{% static 'home/assets/tokyoskyline.png' %}" alt="Red Python Logo above Tokyo" class="w-4/5 lg:w-1/2">
-                
-        </div>
-
-    </div>
-
-    <!-- FEATURES -->
-    <section class="features" id="features">
-        <div class="section-header">
-            <h2 class="section-title">Upcoming events</h2>
-        </div>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-number">01</div>
-            <div class="feature-title">Python x Rust</div>
-                <p class="feature-desc">
-                    A discussion beyond python. Especially when handling large data
-                    in Python, Pandas is good, but it isn't fast.
-                    Introducing Polars, UV, Ruff linter and more.
+{% block content %}
+    <!-- Hero -->
+    <section class="bg-surface px-6 pt-16 pb-24">
+        <div class="max-w-7xl mx-auto flex flex-col items-center lg:flex-row-reverse lg:justify-between gap-12">
+            <img src="{% static 'home/assets/tokyoskyline.png' %}" alt="Red Python Logo above Tokyo" class="w-full max-w-lg lg:w-1/2">
+            <div class="max-w-xl">
+                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-4 block">Est. 2017 — Tokyo, Japan</span>
+                <h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-background mb-8">
+                    Tokyo<br>Python.
+                </h1>
+                <p class="font-body text-base text-on-surface-variant leading-relaxed mb-10 max-w-md">
+                    A vibrant, English-speaking community for Pythonistas based in Tokyo.
+                    Monthly meetups, coding challenges, and a welcoming space for developers of all levels.
                 </p>
-                <a href="https://github.com/ben05allen/TokyoPython-Rust-In-Python">Fancy a peek?</a>
-
-            </div>
-            <div class="feature-card">
-                <div class="feature-number">02</div>
-                <div class="feature-title">Christmas bowling challenge</div>
-                <p class="feature-desc">
-                    A little coding challenge trying to make a bowling scoring program
-                </p>
-                <a href="https://github.com/ben05allen/TokyoPythonBowlingChallenge">Give it a try</a>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="font-carlito">
-            <div class="flex flex-col">
-                
-                <div class="mt-10 flex flex-col gap-5 drop-shadow-md">
-                    <div class="flex flex-col gap-5 items-center md:flex-row md:justify-around"> <a
-                            href="https://www.meetup.com/tokyopython/" class="max-w-40 md:max-w-1/7"> <img
-                                src="{% static 'home/assets/meetup-icon.png' %}" alt="Logo of Meetup.com"> </a> <a
-                            href="https://www.lewagon.com/tokyo" class="max-w-40 md:max-w-1/7"> <img
-                                src="{% static 'home/assets/lewagon.png' %}" alt="Logo of Le Wagon Tokyo Campus"> </a> <a
-                            href="https://tokyopython.link/discord" class="max-w-40 md:max-w-1/7"> <img
-                                src="{% static 'home/assets/discord-black-icon.png' %}" alt="Logo of Discord"> </a> <a
-                            href="https://www.python.org/psf/donations/" class="max-w-40 md:max-w-1/7"> <img
-                                src="{% static 'home/assets/python-logo-only.svg' %}"
-                                alt="Logo of Python Software Foundation Fundraising"> </a> </div>
-                    <p class="mb-5 text-center text-xl md:mx-20 md:text-2xl">
-                        Thank you to all of our members and supporters ☺️
-                    </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="https://www.meetup.com/tokyopython/" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-lg font-headline font-bold text-sm active:scale-95 transition-transform no-underline">
+                        Join the Community
+                    </a>
+                    <a href="{% url 'events_calendar' %}" class="text-primary font-headline font-bold text-sm hover:underline">
+                        View Events →
+                    </a>
                 </div>
             </div>
         </div>
-
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <!-- <h2 class="cta-title"> -->
-        <!-- Join us<br> -->
-        <!-- </h2> -->
-        <a href="" class="btn-light">Join us!</a>
-    </section>
-
-    <!-- FOOTER -->
-        <footer>
-            <div class="py-2 bg-black font-carlito text-white text-xl md:px-60">
-                <div class="mx-auto flex flex-col w-fit gap-1 items-center md:flex-row md:ml-auto md:mr-0">
-                    <p class="py-2 mr-5">© Tokyo Python, 2026</p> <a href="https://www.meetup.com/tokyopython/"> <img
-                            src="{% static 'home/assets/meetup-icon.svg' %}" alt="Tokyo Python on Meetup"
-                            class="w-8 mx-1 hover:w-10 hover:mx-0 transition-all transition-350"> </a> <a
-                        href="https://discord.gg/ZbF4Rjqf"> <img src="{% static 'home/assets/discord-white-icon.png' %}"
-                            alt="Tokyo Python on Discord"
-                            class="w-8 mx-1 hover:w-10 hover:mx-0 transition-all transition-350"> </a>
+    <!-- Upcoming Events -->
+    <section class="bg-surface-container-low px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">What's Next</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Upcoming Events</h2>
                 </div>
+                <a href="{% url 'events_calendar' %}" class="text-primary font-headline font-bold text-sm hover:underline">
+                    Full Calendar →
+                </a>
             </div>
-        </footer>
 
-</body>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for event in upcoming_events %}
+                <div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-colors group cursor-pointer">
+                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-3">{{ event.month_label }}</span>
+                    <h3 class="font-headline font-bold text-xl mb-3 group-hover:text-primary transition-colors">{{ event.title }}</h3>
+                    <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">{{ event.description }}</p>
+                    {% if event.link %}
+                    <a href="{{ event.link }}" class="text-primary font-headline font-bold text-sm">{{ event.link_label }} →</a>
+                    {% endif %}
+                </div>
+                {% empty %}
+                <p class="font-body text-sm text-on-surface-variant col-span-2">No upcoming events yet. Check back soon!</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 
-</html>
+    <!-- Partners -->
+    <section class="bg-surface px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <span class="text-primary font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Our Network</span>
+                <!-- <h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Partners &amp; Friends</h2> -->
+            </div>
+            <div class="flex flex-col gap-8 items-center md:flex-row md:justify-around">
+                <a href="https://www.meetup.com/tokyopython/" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="{% static 'home/assets/meetup-icon.png' %}" alt="Meetup.com">
+                </a>
+                <a href="https://www.lewagon.com/tokyo" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="{% static 'home/assets/lewagon.png' %}" alt="Le Wagon Tokyo">
+                </a>
+                <a href="https://tokyopython.link/discord" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="{% static 'home/assets/discord-black-icon.png' %}" alt="Discord">
+                </a>
+                <a href="https://www.python.org/psf/donations/" class="max-w-32 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="{% static 'home/assets/python-logo-only.svg' %}" alt="Python Software Foundation">
+                </a>
+            </div>
+            <p class="mt-16 text-center font-body text-on-surface-variant text-lg">
+                Thank you to all of our members and supporters.
+            </p>
+        </div>
+    </section>
+{% endblock %}
