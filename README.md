@@ -17,3 +17,11 @@ uv run manage.py runserver
 - Add packages: `uv add <package>` or `uv add --dev <package>`
 - Format & lint: `uv run ruff check --fix .` or `pre-commit run --all-files`
 - Run server: `uv run manage.py runserver`
+
+## Contributing
+
+Please read our [Contributing Guidelines](./CONTRIBUTING.md).
+
+** Important: ** This repository is a community project, maintained by Tokyo Python
+Meetup members, for Tokyo Python Meetup members. To contribute, you must be an active
+or past attendee of the Tokyo Python Meetup.
