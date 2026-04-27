@@ -22,6 +22,6 @@ uv run manage.py runserver
 
 Please read our [Contributing Guidelines](./CONTRIBUTING.md).
 
-** Important: ** This repository is a community project, maintained by Tokyo Python
+**Important:** This repository is a community project, maintained by Tokyo Python
 Meetup members, for Tokyo Python Meetup members. To contribute, you must be an active
 or past attendee of the Tokyo Python Meetup.
